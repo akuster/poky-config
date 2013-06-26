@@ -1,0 +1,16 @@
+cd ~/Repos/oe-core
+git checkout master-next
+git rebase origin/master
+cd ~/Repos/yocto-docs
+git checkout master-next
+git rebase origin/master
+cd ~/Repos/bitbake
+git checkout master-next
+git rebase origin/master
+cd ~/Repos/poky
+cp ../pokyconfig/combo-layer.conf ../pokyconfig/combo-layer-next.conf
+sed -i -e "s/master/master-next/g" ../pokyconfig/combo-layer-next.conf
+git checkout master-next
+git reset master --hard
+../pokyconfig/combo-layer -c ../pokyconfig/combo-layer-next.conf -n update
+git checkout master

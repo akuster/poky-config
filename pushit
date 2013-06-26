@@ -1,0 +1,13 @@
+#!/bin/sh
+cd ~/Repos/poky
+git push origin denzil:denzil danny:danny dylan:dylan master:master
+git push origin master-next:master-next -f
+cd ~/Repos/oe-core
+git push origin denzil:denzil danny:danny dylan:dylan master:master
+git push origin master-next:master-next -f
+cd ~/Repos/meta-yocto
+git push origin denzil:denzil danny:danny dylan:dylan master:master
+git push origin master-next:master-next -f
+cd ~/Repos/bitbake
+git push origin 1.16:1.16 1.18:1.18 master:master
+git push origin master-next:master-next -f
