@@ -1,0 +1,9 @@
+cd ~/Repos/yocto-docs
+git fetch origin
+for i in master daisy dora dylan dizzy fido jethro krogoth morty pyro; do
+    git checkout $i
+    git rebase origin/$i
+done
+git checkout master
+
+
