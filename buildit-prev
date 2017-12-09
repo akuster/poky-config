@@ -1,0 +1,9 @@
+cd ~/Repos/poky
+# krogoth jethro fido dizzy daisy dora denzil danny dylan 
+for release in "$@"
+do
+    git checkout $release
+    ../pokyconfig/combo-layer -c ../pokyconfig/combo-layer-$release.conf -n update
+done
+
+git checkout master
