@@ -1,13 +1,14 @@
 #!/bin/sh
 cd ~/Repos/poky
-git push origin denzil:denzil danny:danny dylan:dylan master:master
-git push origin master-next:master-next -f
+git push origin master:master denzil:denzil danny:danny dylan:dylan dora:dora daisy:daisy dizzy:dizzy fido:fido jethro:jethro krogoth:krogoth morty:morty pyro:pyro rocko:rocko
+git push origin krogoth-next:krogoth-next morty-next:morty-next pyro-next:pyro-next master-next:master-next -f
+git push contrib master:master
 cd ~/Repos/oe-core
-git push origin denzil:denzil danny:danny dylan:dylan master:master
-git push origin master-next:master-next -f
+git push origin master:master denzil:denzil danny:danny dylan:dylan dora:dora daisy:daisy dizzy:dizzy fido:fido jethro:jethro krogoth:krogoth morty:morty pyro:pyro rocko:rocko
+git push origin krogoth-next:krogoth-next morty-next:morty-next pyro-next:pyro-next master-next:master-next -f
 cd ~/Repos/meta-yocto
-git push origin denzil:denzil danny:danny dylan:dylan master:master
+git push origin master:master denzil:denzil danny:danny dylan:dylan dora:dora daisy:daisy dizzy:dizzy fido:fido jethro:jethro krogoth:krogoth morty:morty pyro:pyro rocko:rocko
 git push origin master-next:master-next -f
 cd ~/Repos/bitbake
-git push origin 1.16:1.16 1.18:1.18 master:master
+git push origin master:master 1.16:1.16 1.18:1.18 1.20:1.20 1.22:1.22 1.24:1.24 1.26:1.26 1.28:1.28 1.30:1.30 1.32:1.32 1.34:1.34 1.36:1.36
 git push origin master-next:master-next -f
