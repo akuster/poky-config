@@ -25,6 +25,8 @@ elif [ $BRANCH = "pyro" ]; then
     RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
 elif [ $BRANCH = "rocko" ]; then
     RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
+elif [ $BRANCH = "sumo" ]; then
+    RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
 elif [ $BRANCH = "master" ]; then
     RECIPE="meta/recipes-core/images/build-appliance-image_15.0.0.bb"
 fi

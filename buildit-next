@@ -3,6 +3,7 @@ branch=${1:-master}
 nextbranch=${branch}-next
 
 for i in oe-core yocto-docs bitbake meta-yocto; do
+    echo $i
     if [ $branch != "master" -a $i = "bitbake" ]; then
         continue
     fi
@@ -17,8 +18,13 @@ layerfile=combo-layer-${branch}.conf
 if [ $branch = "master" ]; then
     layerfile=combo-layer.conf
 fi
+
 cp ../pokyconfig/$layerfile ../pokyconfig/combo-layer-next.conf
 sed -i -e "s/${branch}/${nextbranch}/g" ../pokyconfig/combo-layer-next.conf
+if [ $nextbranch = "sumo-next" ]; then
+    sed -i -z -e  "s/\(bitbake\nbranch = \)sumo-next/\11.38/g" ../pokyconfig/combo-layer-next.conf
+fi
+
 git checkout $nextbranch
 git reset $branch --hard
 # Add -D option for debug
