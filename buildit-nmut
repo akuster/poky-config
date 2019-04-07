@@ -21,5 +21,5 @@ cp ../pokyconfig/$layerfile ../pokyconfig/combo-layer-stable-nmut.conf
 git checkout stable/$nextbranch
 git reset stable/$nextbranch --hard
 # Add -D option for debug
-../pokyconfig/combo-layer -c ../pokyconfig/combo-layer-nmut.conf -n update
+../pokyconfig/combo-layer -c ../pokyconfig/combo-layer-stable-nmut.conf -n update
 #git checkout master
