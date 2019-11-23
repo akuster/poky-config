@@ -1,0 +1,25 @@
+#!/bin/bash
+branch=${1:-master}
+nextbranch=${branch}-nut
+
+for i in openembedded-core yocto-docs bitbake meta-yocto; do
+    echo $i
+    if [ $branch != "master" -a $i = "bitbake" ]; then
+        continue
+    fi
+    cd ~/oss/maint/$i
+    git checkout stable/$nextbranch
+    git rebase $branch
+done
+
+cd ~/oss/stable/poky
+
+layerfile=combo-layer-stable-${branch}-nut.conf
+
+cp ../pokyconfig/$layerfile ../pokyconfig/combo-layer-stable-nut.conf
+
+git checkout stable/$nextbranch
+git reset stable/$nextbranch --hard
+# Add -D option for debug
+../pokyconfig/combo-layer -c ../pokyconfig/combo-layer-stable-nut.conf -n update
+#git checkout master
