@@ -8,6 +8,9 @@ for i in openembedded-core yocto-docs bitbake meta-yocto; do
         continue
     fi
     cd ~/oss/maint/$i
+    git checkout master
+    git pull
+    git fetch contrib
     git checkout stable/$nextbranch
     git rebase $branch
 done
@@ -18,8 +21,13 @@ layerfile=combo-layer-stable-${branch}-nut.conf
 
 cp ../pokyconfig/$layerfile ../pokyconfig/combo-layer-stable-nut.conf
 
-git checkout stable/$nextbranch
-git reset stable/$nextbranch --hard
+git checkout -f master
+git pull
+git branch -D stable/$nextbranch
+git checkout $branch
+git checkout -b stable/$nextbranch
+
+#git reset stable/$nextbranch --hard
 # Add -D option for debug
 ../pokyconfig/combo-layer -c ../pokyconfig/combo-layer-stable-nut.conf -n update
 #git checkout master
